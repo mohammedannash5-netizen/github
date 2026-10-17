@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#c2677a">
+<title>عُش ستور</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Reem+Kufi:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#c2677a;--rose-d:#a14d62;--plum:#3d2432;--cream:#fff7f4;--blush:#fbe6ea;--gold:#c9a46a;--mut:#8a7a80;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Cairo,Tahoma,sans-serif;background:var(--cream);color:var(--plum)}
+button{font:inherit;cursor:pointer;border:0}
+.top{background:var(--plum);color:#fff;text-align:center;font-size:.82rem;padding:7px}
+header{position:sticky;top:0;z-index:30;background:#fffc;backdrop-filter:blur(10px);border-bottom:1px solid #0001;display:flex;justify-content:space-between;align-items:center;padding:10px 5%}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--plum)}
+.logo b{font-family:'Reem Kufi',Cairo;font-size:1.5rem;line-height:1}
+.logo small{display:block;font-size:.65rem;color:var(--mut);letter-spacing:.5px}
+.ic{position:relative;width:44px;height:44px;border-radius:50%;background:var(--blush);font-size:1.15rem;transition:.25s}
+.ic:hover{background:var(--rose);transform:translateY(-2px)}
+#count{position:absolute;top:-3px;left:-3px;background:var(--rose-d);color:#fff;border-radius:50%;min-width:20px;height:20px;font-size:.72rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:20px;padding:40px 5%;background:linear-gradient(135deg,var(--blush),#fff 60%);overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:1.25}
+.hero h1 span{color:var(--rose)}
+.hero p{color:var(--mut);margin:14px 0 22px;max-width:440px;line-height:1.9}
+.cta{display:inline-block;background:var(--rose);color:#fff;padding:13px 30px;border-radius:30px;text-decoration:none;font-weight:700;box-shadow:0 8px 20px #c2677a55;transition:.25s}
+.cta:hover{background:var(--rose-d);transform:translateY(-3px)}
+.hero-art{max-width:340px;margin:auto;border-radius:50% 50% var(--r) var(--r);overflow:hidden;box-shadow:0 20px 50px #c2677a40;animation:fl 5s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-10px)}}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:20px 5%}
+.feat div{background:#fff;border-radius:var(--r);padding:14px;text-align:center;font-size:.85rem;box-shadow:0 2px 10px #0000000d}
+.feat i{font-style:normal;font-size:1.6rem;display:block}
+h2.sec{text-align:center;font-size:1.6rem;margin:26px 0 4px}
+.sub{text-align:center;color:var(--mut);margin-bottom:16px;font-size:.9rem}
+.bar{display:flex;gap:10px;flex-wrap:wrap;padding:0 5% 10px;max-width:1200px;margin:auto}
+.bar input,.bar select{padding:11px 16px;border:1px solid #e8d5d9;border-radius:30px;font:inherit;background:#fff;outline:0}
+.bar input{flex:1;min-width:160px}.bar input:focus{border-color:var(--rose)}
+#cats{display:flex;gap:8px;overflow-x:auto;padding:6px 5% 14px;max-width:1200px;margin:auto;scrollbar-width:none}
+#cats button{white-space:nowrap;background:#fff;color:var(--plum);padding:9px 20px;border-radius:30px;box-shadow:0 2px 8px #0000000d;transition:.2s}
+#cats button:hover,#cats .on{background:var(--rose);color:#fff}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px;padding:10px 5% 40px;max-width:1200px;margin:auto}
+.card{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 4px 16px #0000000d;transition:.3s;animation:up .5s both}
+@keyframes up{from{opacity:0;transform:translateY(16px)}}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 30px #c2677a30}
+.im{position:relative;cursor:pointer;aspect-ratio:3/4;overflow:hidden}
+.im svg,.im img{width:100%;height:100%;object-fit:cover;display:block;transition:.5s}
+.card:hover .im svg,.card:hover .im img{transform:scale(1.06)}
+.bd{position:absolute;top:10px;right:10px;background:var(--gold);color:#fff;font-size:.72rem;padding:3px 10px;border-radius:12px;font-weight:700}
+.bd.out{background:#777}
+.hrt{position:absolute;top:8px;left:8px;width:36px;height:36px;border-radius:50%;background:#fffd;font-size:1.1rem;color:var(--rose);transition:.2s}
+.hrt:hover{transform:scale(1.15)}
+.in{padding:14px}.in small{color:var(--mut);font-size:.75rem}
+.in h3{font-size:1rem;margin:2px 0}
+.pr{color:var(--rose-d);font-weight:800;font-size:1.1rem;margin:4px 0 10px}
+.btn{width:100%;background:var(--plum);color:#fff;padding:11px;border-radius:12px;font-weight:600;transition:.25s}
+.btn:hover{background:var(--rose)}.btn:disabled{background:#ccc;cursor:not-allowed}
+.ov{position:fixed;inset:0;background:#2a1520aa;z-index:60;display:none;align-items:center;justify-content:center;padding:14px}
+.ov.show{display:flex;animation:fi .25s}
+@keyframes fi{from{opacity:0}}
+.box{background:#fff;border-radius:22px;width:100%;max-width:460px;max-height:92vh;overflow:auto;padding:18px;position:relative}
+.x{position:absolute;top:10px;left:12px;width:34px;height:34px;border-radius:50%;background:var(--blush);font-size:1.3rem;z-index:2}
+.g{border-radius:var(--r);overflow:hidden;margin-top:30px;aspect-ratio:4/4.4}.g svg,.g img{width:100%;height:100%;object-fit:cover;display:block}
+.th{display:flex;gap:6px;margin:8px 0}.th img{width:54px;height:54px;border-radius:10px;object-fit:cover;cursor:pointer}
+.tag{font-size:.78rem;padding:3px 12px;border-radius:12px;background:#e6f6ec;color:#1f7a45}.tag.no{background:#fde8e8;color:#b32d2d}
+.sz{display:flex;gap:8px;margin:8px 0 14px;flex-wrap:wrap}
+.sz button{min-width:48px;padding:9px 14px;border-radius:10px;background:#fff;border:1.5px solid #e8d5d9;transition:.2s}
+.sz .on{background:var(--rose);color:#fff;border-color:var(--rose)}
+.qr{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.qr button,.q button{width:32px;height:32px;border-radius:50%;background:var(--blush)}
+.dr{position:fixed;top:0;bottom:0;left:0;width:min(430px,100%);background:#fff;z-index:70;transform:translateX(-105%);transition:.35s;display:flex;flex-direction:column;box-shadow:0 0 40px #0004}
+.dr.show{transform:none}
+.dr .hd{padding:16px 18px;border-bottom:1px solid #0001;font-weight:700;font-size:1.1rem;display:flex;justify-content:space-between}
+.dr .bd2{flex:1;overflow:auto;padding:6px 18px}
+.dr .ft{padding:14px 18px;border-top:1px solid #0001;max-height:58vh;overflow:auto}
+.row{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #0000000d}
+.row .t{width:58px;height:74px;border-radius:10px;overflow:hidden;flex:none}.row .t svg,.row .t img{width:100%;height:100%;object-fit:cover}
+.row .n{flex:1;font-size:.88rem}.row .n span{color:var(--mut);font-size:.78rem}
+.ft input,.ft textarea{width:100%;padding:10px 14px;margin-bottom:8px;border:1px solid #e8d5d9;border-radius:12px;font:inherit;outline:0}
+.ft input:focus,.ft textarea:focus{border-color:var(--rose)}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:1.1rem;margin-bottom:10px}
+.empty{text-align:center;padding:60px 10px;color:var(--mut)}
+footer{background:var(--plum);color:#e9d8de;padding:34px 5% 80px;text-align:center}
+footer .logo{justify-content:center;color:#fff}footer .logo small{color:#cbb}
+footer p{margin:10px 0;font-size:.88rem}footer a{color:var(--gold);text-decoration:none;font-weight:700}
+.wa{position:fixed;bottom:18px;left:18px;width:58px;height:58px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;z-index:40;box-shadow:0 6px 18px #0005;animation:pl 2.2s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 #25d36699}70%{box-shadow:0 0 0 16px #25d36600}}
+#toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:var(--plum);color:#fff;padding:10px 22px;border-radius:30px;z-index:99;display:none;font-size:.9rem}
+@media(max-width:700px){.hero{grid-template-columns:1fr;text-align:center}.hero p{margin-inline:auto}.hero-art{max-width:230px;order:-1}#grid{grid-template-columns:repeat(2,1fr);gap:12px}.in{padding:10px}.in h3{font-size:.9rem}}
+</style>
+</head>
+<body>
+<div class="top" id="ann"></div>
+<header>
+  <a class="logo" href="#"><span id="lg"></span><span><b id="sn"></b><small id="tg"></small></span></a>
+  <div style="display:flex;gap:8px">
+    <button class="ic" onclick="showFav()" aria-label="المفضلة">♡</button>
+    <button class="ic" onclick="openCart()" aria-label="السلة">🛍️<span id="count">0</span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>أناقتكِ تبدأ من <span>عُشّكِ</span> الخاص</h1>
+    <p>أحدث فساتين السهرة والكاجوال والأعراس، بتصاميم راقية وجودة تليق بكِ. اطلبي بسهولة عبر واتساب.</p>
+    <a class="cta" href="#shop">تسوّقي الآن ✨</a>
+  </div>
+  <div class="hero-art" id="ha"></div>
+</section>
+
+<section class="feat">
+  <div><i>🚚</i>توصيل لجميع المناطق</div>
+  <div><i>💎</i>جودة مضمونة</div>
+  <div><i>💬</i>طلب سريع عبر واتساب</div>
+  <div><i>🔄</i>استبدال حسب الشروط</div>
+</section>
+
+<h2 class="sec" id="shop">مجموعتنا</h2>
+<p class="sub">اختاري فستانكِ المفضل</p>
+<div class="bar">
+  <input id="q" placeholder="🔍 ابحثي عن فستان..." oninput="q=this.value;renderGrid()">
+  <select onchange="sort=this.value;renderGrid()"><option value="">الترتيب</option><option value="a">الأقل سعرًا</option><option value="d">الأعلى سعرًا</option></select>
+</div>
+<div id="cats"></div>
+<div id="grid"></div>
+
+<footer>
+  <div class="logo"><span id="lg2"></span><span><b id="sn2"></b><small id="tg2"></small></span></div>
+  <p>للطلب والاستفسار تواصلي معنا على واتساب</p>
+  <p><a id="fw" target="_blank">💬 تواصلي معنا</a> <span id="fi"></span></p>
+  <p style="opacity:.6;font-size:.78rem">© <span id="yr"></span> جميع الحقوق محفوظة</p>
+</footer>
+
+<a class="wa" id="wa" target="_blank" aria-label="واتساب"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 2.5a9.500 9.500 0 0 0-8.100 14.400L2.500 21.500l4.700-1.300A9.500 9.500 0 1 0 12 2.500z" fill="#fff"/><circle cx="8.300" cy="12" r="1.200" fill="#25d366"/><circle cx="12" cy="12" r="1.200" fill="#25d366"/><circle cx="15.700" cy="12" r="1.200" fill="#25d366"/></svg></a>
+
+<div class="ov" id="pm" onclick="if(event.target===this)closeAll()"><div class="box"><button class="x" onclick="closeAll()">×</button><div id="pb"></div></div></div>
+<div class="ov" id="bk" onclick="closeAll()" style="z-index:65"></div>
+<aside class="dr" id="dr">
+  <div class="hd">🛍️ سلة المشتريات <button class="x" style="position:static" onclick="closeAll()">×</button></div>
+  <div class="bd2" id="items"></div>
+  <div class="ft" id="ft">
+    <div class="tot"><span>الإجمالي</span><span id="total"></span></div>
+    <input id="cn" placeholder="الاسم الكامل">
+    <input id="cp" type="tel" placeholder="رقم الهاتف">
+    <textarea id="ca" rows="2" placeholder="العنوان بالتفصيل"></textarea>
+    <input id="cm" placeholder="ملاحظات (اختياري)">
+    <button class="btn" id="ob" onclick="checkout()">تأكيد الطلب عبر واتساب 💬</button>
+  </div>
+</aside>
+<div id="toast"></div>
+
+<script>
+/* ============ الإعدادات: عدّل هنا فقط ============ */
+const CONFIG = {
+  STORE_NAME: 'عُش ستور',
+  TAGLINE: 'ملاذ أناقتكِ',
+  ANNOUNCE: '🎀 توصيل لجميع المناطق • اطلبي الآن عبر واتساب',
+  WHATSAPP: '967772726360',   // رقمك بالصيغة الدولية بدون + أو أصفار
+  API_URL: '',       https://script.google.com/macros/s/AKfycbycQVeVS1aTUGbCpfmQ-9GvqlOXr6JfKk3QQ0_6HbbjifgRWdu89hESGMo3ktxpJwVX/exec        // رابط Web App (فارغ = بيانات تجريبية)
+  CURRENCY: 'ر.ي',
+  SIZES: ['S','M','L','XL','XXL'],
+  INSTAGRAM: ''               // رابط إنستغرام (اختياري)
+};
+const DEMO=[
+ {id:1,name:'فستان سهرة ملكي',category:'فساتين سهرة',price:45000,stock:5,description:'فستان سهرة طويل بقماش ساتان فاخر وتطريز راقٍ على الصدر، يمنحكِ إطلالة ملكية في كل مناسبة.',image_url:'',active:true},
+ {id:2,name:'فستان سهرة أسود',category:'فساتين سهرة',price:38000,stock:3,description:'قصة حورية البحر بظهر مفتوح وقماش ناعم ينساب على الجسم بأناقة.',image_url:'',active:true},
+ {id:3,name:'فستان كاجوال صيفي',category:'فساتين كاجوال',price:15000,stock:12,description:'فستان قطني خفيف بطباعة زهور ناعمة، مريح ومناسب للخروج اليومي.',image_url:'',active:true},
+ {id:4,name:'فستان كاجوال مخطط',category:'فساتين كاجوال',price:13500,stock:0,description:'خطوط بسيطة وحزام للخصر يبرز القوام، عملي وأنيق.',image_url:'',active:true},
+ {id:5,name:'فستان عرس أبيض',category:'فساتين أعراس',price:120000,stock:2,description:'فستان زفاف بذيل طويل ودانتيل فرنسي وتفاصيل لؤلؤ تليق بأجمل ليلة.',image_url:'',active:true},
+ {id:6,name:'فستان خطوبة وردي',category:'فساتين أعراس',price:65000,stock:4,description:'تول منفوش بلون وردي ناعم، مثالي للخطوبة والحفلات.',image_url:'',active:true}
+];
+/* ================================================== */
+const $=id=>document.getElementById(id);
+const ls=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}};
+let products=[],cart=ls('ush_cart',{}),fav=ls('ush_fav',[]),cat='الكل',q='',sort='',sel={};
+const money=n=>Number(n).toLocaleString('en-US')+' '+CONFIG.CURRENCY;
+const toast=m=>{const t=$('toast');t.textContent=m;t.style.display='block';clearTimeout(t.h);t.h=setTimeout(()=>t.style.display='none',1900)};
+
+/* الشعار: عُش + فستان */
+const logo=s=>`<svg width="${s}" height="${s}" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="31" fill="#fbe6ea"/><path d="M26 12l6 6 6-6 3 12-3 3 6 14H20l6-14-3-3z" fill="#c2677a"/><g stroke="#3d2432" stroke-width="2.4" stroke-linecap="round"><path d="M11 40q21 22 42 0"/><path d="M14 46q18 14 36 0"/><path d="M10 36q22 12 44 0"/><path d="M19 51q13 7 26 0"/></g></svg>`;
+
+/* رسم فستان بديل للصورة */
+function art(p){
+  const h=(p.id*53)%360,id='g'+p.id+Math.random().toString(36).slice(2,5);
+  const c=String(p.category),d=c.includes('عر')?'M86 62l14 14 14-14 7 42-8 12 62 118Q100 262 30 236L88 116l-8-12z':c.includes('سهر')?'M84 62l16 14 16-14 8 40-6 16Q112 176 130 236Q100 248 70 236 88 176 82 118l-6-16z':'M82 62l18 14 18-14 10 42-6 12 28 84H50l28-84-6-12z';
+  return `<svg viewBox="0 0 200 270" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(${h},55%,76%)"/><stop offset="1" stop-color="hsl(${h},50%,48%)"/></linearGradient><linearGradient id="${id}b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="hsl(${h},70%,97%)"/><stop offset="1" stop-color="hsl(${h},60%,88%)"/></linearGradient></defs><rect width="200" height="270" fill="url(#${id}b)"/><circle cx="170" cy="40" r="46" fill="#fff" opacity=".45"/><circle cx="26" cy="220" r="34" fill="#fff" opacity=".35"/><path d="M100 24v12M100 36q-16 6-24 24M100 36q16 6 24 24" stroke="#3d2432" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/><path d="${d}" fill="url(#${id})" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M100 76v52M92 118q8 8 16 0" stroke="#fff" stroke-width="2" opacity=".55" fill="none"/><path d="M78 118h44" stroke="#c9a46a" stroke-width="4" stroke-linecap="round"/><path d="M100 150l3 8 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1z" fill="#fff" opacity=".6" transform="translate(0 6)"/></svg>`;
+}
+const imgs=p=>p.image_url?String(p.image_url).split(',').map(s=>s.trim()).filter(Boolean):[];
+const media=p=>imgs(p).length?`<img src="${imgs(p)[0]}" alt="${p.name}" loading="lazy">`:art(p);
+const inCart=id=>Object.keys(cart).filter(k=>k.split('|')[0]==id).reduce((a,k)=>a+cart[k],0);
+const save=()=>{localStorage.setItem('ush_cart',JSON.stringify(cart));localStorage.setItem('ush_fav',JSON.stringify(fav));$('count').textContent=Object.values(cart).reduce((a,b)=>a+b,0)};
+
+async function load(){
+  const C=CONFIG;document.title=C.STORE_NAME+' | '+C.TAGLINE;
+  ['sn','sn2'].forEach(i=>$(i).textContent=C.STORE_NAME);['tg','tg2'].forEach(i=>$(i).textContent=C.TAGLINE);
+  $('lg').innerHTML=logo(46);$('lg2').innerHTML=logo(50);$('ann').textContent=C.ANNOUNCE;$('yr').textContent=new Date().getFullYear();
+  $('wa').href=$('fw').href='https://wa.me/'+C.WHATSAPP;
+  if(C.INSTAGRAM)$('fi').innerHTML=` • <a href="${C.INSTAGRAM}" target="_blank">📸 إنستغرام</a>`;
+  try{products=C.API_URL?(await (await fetch(C.API_URL+'?action=products')).json()).products:DEMO}catch(e){products=DEMO;toast('تعذر الاتصال، تم عرض بيانات تجريبية')}
+  products=products.filter(p=>String(p.active).toUpperCase()!=='FALSE');
+  Object.keys(cart).forEach(k=>{if(!products.some(p=>p.id==k.split('|')[0]))delete cart[k]});
+  $('ha').innerHTML=art(products.find(p=>String(p.category).includes('عر'))||products[0]||DEMO[4]);
+  renderCats();renderGrid();save();
+}
+function renderCats(){
+  $('cats').innerHTML=['الكل',...new Set(products.map(p=>p.category))].map(x=>`<button class="${x===cat?'on':''}" onclick="cat='${x}';renderCats();renderGrid()">${x}</button>`).join('');
+}
+function renderGrid(){
+  let L=products.filter(p=>(cat==='الكل'||(cat==='fav'?fav.includes(p.id):p.category===cat))&&(p.name+p.category).includes(q.trim()));
+  if(sort)L.sort((a,b)=>sort==='a'?a.price-b.price:b.price-a.price);
+  $('grid').innerHTML=L.length?L.map((p,i)=>{
+    const b=p.stock<=0?'<span class="bd out">نفذت الكمية</span>':p.stock<=3?'<span class="bd">كمية محدودة</span>':'';
+    return `<div class="card" style="animation-delay:${i*60}ms"><div class="im" onclick="openP(${p.id})">${media(p)}${b}<button class="hrt" onclick="event.stopPropagation();wish(${p.id})">${fav.includes(p.id)?'♥':'♡'}</button></div>
+    <div class="in"><small>${p.category}</small><h3>${p.name}</h3><div class="pr">${money(p.price)}</div><button class="btn" ${p.stock>0?'':'disabled'} onclick="openP(${p.id})">${p.stock>0?'اختاري المقاس':'غير متوفر'}</button></div></div>`}).join(''):'<div class="empty" style="grid-column:1/-1">😔 لا توجد نتائج</div>';
+}
+function wish(id){fav=fav.includes(id)?fav.filter(x=>x!==id):[...fav,id];save();renderGrid()}
+function showFav(){cat='fav';renderCats();renderGrid();location.hash='shop';if(!fav.length)toast('لم تضيفي مفضلات بعد ♡')}
+
+function openP(id){
+  const p=products.find(x=>x.id==id),im=imgs(p),ok=p.stock>0;sel={id,size:'',qty:1};
+  $('pb').innerHTML=`<div class="g" id="gm">${im.length?`<img src="${im[0]}">`:art(p)}</div>
+  ${im.length>1?`<div class="th">${im.map(s=>`<img src="${s}" onclick="$('gm').innerHTML='<img src=&quot;${s}&quot;>'">`).join('')}</div>`:''}
+  <small style="color:var(--mut)">${p.category}</small><h2 style="margin:2px 0">${p.name}</h2>
+  <div class="pr" style="font-size:1.4rem">${money(p.price)}</div>
+  <span class="tag ${ok?'':'no'}">${ok?'متوفر':'نفذت الكمية'}</span>
+  <p style="margin:12px 0;line-height:1.9;color:#5c4a52">${p.description}</p>
+  ${ok?`<b>المقاس</b><div class="sz">${CONFIG.SIZES.map(s=>`<button onclick="pick('${s}',this)">${s}</button>`).join('')}</div>
+  <div class="qr"><b>الكمية</b><button onclick="qc(-1)">−</button><b id="qv">1</b><button onclick="qc(1)">+</button></div>
+  <button class="btn" onclick="addSel()">أضيفي إلى السلة 🛍️</button>`:''}`;
+  $('pm').classList.add('show');
+}
+function pick(s,el){sel.size=s;document.querySelectorAll('.sz button').forEach(b=>b.classList.remove('on'));el.classList.add('on')}
+function qc(d){const p=products.find(x=>x.id==sel.id);sel.qty=Math.max(1,Math.min(p.stock-inCart(p.id),sel.qty+d)||1);$('qv').textContent=sel.qty}
+function addSel(){
+  const p=products.find(x=>x.id==sel.id);
+  if(!sel.size)return toast('اختاري المقاس أولًا');
+  if(inCart(p.id)+sel.qty>p.stock)return toast('الكمية المتاحة '+p.stock+' فقط');
+  const k=p.id+'|'+sel.size;cart[k]=(cart[k]||0)+sel.qty;save();closeAll();toast('تمت الإضافة للسلة ✓');
+}
+const lines=()=>Object.entries(cart).map(([k,qty])=>{const[id,size]=k.split('|');return{k,p:products.find(x=>x.id==id),size,qty}}).filter(l=>l.p);
+const sum=()=>lines().reduce((a,l)=>a+l.p.price*l.qty,0);
+function cc(k,d){
+  const id=k.split('|')[0],p=products.find(x=>x.id==id),n=cart[k]+d;
+  if(d>0&&inCart(id)>=p.stock)return toast('وصلتِ للحد المتاح');
+  n<=0?delete cart[k]:cart[k]=n;save();renderCart();
+}
+function openCart(){renderCart();$('bk').classList.add('show');$('dr').classList.add('show')}
+function renderCart(){
+  const L=lines();
+  $('items').innerHTML=L.length?L.map(({k,p,size,qty})=>`<div class="row"><div class="t">${media(p)}</div>
+  <div class="n"><b>${p.name}</b><br><span>المقاس: ${size}</span><br><b style="color:var(--rose-d)">${money(p.price*qty)}</b></div>
+  <div class="q"><button onclick="cc('${k}',1)">+</button> <b>${qty}</b> <button onclick="cc('${k}',-1)">−</button></div></div>`).join(''):'<div class="empty">🛍️<br>سلتكِ فارغة</div>';
+  $('ft').style.display=L.length?'block':'none';$('total').textContent=money(sum());
+}
+function closeAll(){document.querySelectorAll('.ov').forEach(o=>o.classList.remove('show'));$('dr').classList.remove('show')}
+async function checkout(){
+  const n=$('cn').value.trim(),ph=$('cp').value.trim(),a=$('ca').value.trim(),nt=$('cm').value.trim(),L=lines();
+  if(!n||!a)return toast('يرجى كتابة الاسم والعنوان');
+  if(ph.replace(/\D/g,'').length<7)return toast('رقم الهاتف غير صحيح');
+  const b=$('ob');b.disabled=true;b.textContent='جارٍ إرسال الطلب...';
+  const order={name:n,phone:ph,address:a+(nt?' | ملاحظة: '+nt:''),items:L.map(l=>`${l.p.name} (${l.size}) × ${l.qty}`).join(' | '),total:sum()};
+  if(CONFIG.API_URL){
+    const r=fetch(CONFIG.API_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(order)}).catch(()=>{});
+    await Promise.race([r,new Promise(x=>setTimeout(x,2500))]);
+  }
+  const msg=`🛍️ *طلب جديد - ${CONFIG.STORE_NAME}*\n\n👤 الاسم: ${n}\n📞 الهاتف: ${ph}\n📍 العنوان: ${a}${nt?'\n📝 ملاحظة: '+nt:''}\n\n*المنتجات:*\n${L.map(l=>`• ${l.p.name} (${l.size}) × ${l.qty} = ${money(l.p.price*l.qty)}`).join('\n')}\n\n💰 *الإجمالي: ${money(order.total)}*`;
+  cart={};save();closeAll();b.disabled=false;b.textContent='تأكيد الطلب عبر واتساب 💬';
+  location.href='https://wa.me/'+CONFIG.WHATSAPP+'?text='+encodeURIComponent(msg);
+}
+load();
+</script>
+</body>
+</html>
